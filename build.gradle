@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'gcdocs'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+    flatDir{
+        dirs 'libs'
+    }
+}
+run {
+    args = [ 'DEV', '', '', '' ]
+}
+
+dependencies {
+    compile name: 'jackcess-2.2.0'
+    compile 'com.google.guava:guava:21.0'
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'commons-logging:commons-logging:1.2'
+    compile 'javax.xml.bind:jaxb-api:2.3.1'
+    compile 'com.sun.xml.bind:jaxb-impl:2.3.1'
+    compile 'org.glassfish.jaxb:jaxb-core:2.3.0.1'
+    testCompile 'junit:junit:4.12'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'GCDOCS Object Import API',
+                'Implementation-Version': 1.0,
+                'Main-Class': 'App',
+                'Class-Path' : 'lib/jackcess-2.2.0.jar ' +
+                        'lib/commons-lang-2.6.jar ' +
+                        'lib/commons-logging-1.2.jar ' +
+                        'lib/guava-21.0.jar ' +
+                        'lib/jaxb-api-2.3.1.jar ' +
+                        'lib/jaxb-core-2.3.0.1.jar ' +
+                        'lib/jaxb-impl-2.3.1.jar '
+    }
+    baseName = 'GCDOCS Object Import API'
+    from ('src/main/java'){
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        include 'resources/*.properties'
+    }
+    with jar
+}
+
+mainClassName = 'App'
