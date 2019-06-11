@@ -15,6 +15,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Node {
 
+    String keynum;
     @XmlElement
     String location;
     @XmlAttribute
@@ -41,12 +42,18 @@ public class Node {
     String offsiteID;
     @XmlElement
     String RecordType;
+    @XmlElement
+    Node_Assign assign;
+    @XmlElement
+    Node_AssignBox assignBox;
     @XmlElement(name = "securityclearance")
     Node_Security_Clearance security_clearance;
     @XmlElement(name = "rmclassification")
     Node_RMClassification rmClassification;
     @XmlElement
     Node_Ownergroup ownergroup;
+    @XmlElement
+    String uniqueID;
 
     @XmlElement(name = "title")
     Collection<Node_Title> titles = new ArrayList<Node_Title>();
@@ -82,6 +89,38 @@ public class Node {
         this.rmClassification = rmClassification;
         this.descriptions = descriptionList;
         this.categories = categoryList;
+    }
+
+    public String getUniqueID() {
+        return uniqueID;
+    }
+
+    public void setUniqueID(String uniqueID) {
+        this.uniqueID = uniqueID;
+    }
+
+    public Node_AssignBox getAssignBox() {
+        return assignBox;
+    }
+
+    public void setAssignBox(Node_AssignBox assignBox) {
+        this.assignBox = assignBox;
+    }
+
+    public Node_Assign getAssign() {
+        return assign;
+    }
+
+    public void setAssign(Node_Assign assign) {
+        this.assign = assign;
+    }
+
+    public String getKeynum() {
+        return keynum;
+    }
+
+    public void setKeynum(String keynum) {
+        this.keynum = keynum;
     }
 
     public Node_Ownergroup getOwnergroup() {

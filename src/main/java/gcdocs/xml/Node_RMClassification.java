@@ -16,6 +16,26 @@ public class Node_RMClassification {
     private int classID;
     @XmlElement
     private Node_RMClassification_Status status;
+    @XmlElement
+    private String recorddate;
+    @XmlElement
+    private String statusdate;
+
+    public String getRecorddate() {
+        return recorddate;
+    }
+
+    public void setRecorddate(String recorddate) {
+        this.recorddate = recorddate;
+    }
+
+    public String getStatusdate() {
+        return statusdate;
+    }
+
+    public void setStatusdate(String statusdate) {
+        this.statusdate = statusdate;
+    }
 
     public int getClassID() {
         return classID;
