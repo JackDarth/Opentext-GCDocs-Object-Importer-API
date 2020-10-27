@@ -2,7 +2,21 @@
 
 The **Java API** give you the ability to build and generate XML importing files for **GCDocs Object Importer**. It has Node structure in object oriented design which ease you on building the XML files. Also, this API is open source which allow any of you to contribute your new idea.
 
-**Example One**
+**Example One** Includes the following metadata
+* title
+* security clearance
+* node description
+* node type
+* node action
+* language
+* location
+* media type
+* physical location
+* create date
+* modified date
+* from date
+* to date
+
 ```
 public static void main(String[] args) throws IOException, JAXBException {
         JAXBContext jc = JAXBContext.newInstance(Import.class);
@@ -106,7 +120,10 @@ public static void main(String[] args) throws IOException, JAXBException {
     }
 ```
 
-**Example Two**
+**Example Two** Includes the following metadata
+* RMClassification
+* RMClassification Status
+
 ```
 public static void main(String[] args) throws JAXBException {
         JAXBContext jc = JAXBContext.newInstance(Import.class);
@@ -160,7 +177,10 @@ public static void main(String[] args) throws JAXBException {
     }
 ```
 
-**Example Three**
+**Example Three** Includes the following metadata
+* category
+* category attributes
+
 ```
 public static void main(String[] args) throws JAXBException {
         JAXBContext jc = JAXBContext.newInstance(Import.class);
@@ -247,7 +267,9 @@ public static void main(String[] args) throws JAXBException {
     }
 ```
 
-**Example Four**
+**Example Four** Includes the following metadata
+* owner group
+
 ```
 public static void main(String[] args) throws JAXBException {
         JAXBContext jc = JAXBContext.newInstance(Import.class);
